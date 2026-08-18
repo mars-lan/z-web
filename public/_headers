@@ -7,8 +7,8 @@
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
 
-/privacy/index.html
+/privacy.html
   Cache-Control: public, max-age=0, must-revalidate
 
-/terms/index.html
+/terms.html
   Cache-Control: public, max-age=0, must-revalidate
