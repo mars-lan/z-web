@@ -1,0 +1,210 @@
+:root {
+  color-scheme: dark;
+  --bg: #0e1415;
+  --accent: #e99a9a;
+  --accent-deep: #a82424;
+  --text: #e8eaed;
+  --muted: #9aa0a6;
+  --disc: #0e1415;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --bg: #f4fafa;
+    --accent: #a82424;
+    --accent-deep: #a82424;
+    --text: #202124;
+    --muted: #5f6368;
+    --disc: #f4fafa;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#embers {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1.5rem;
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.seal {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 145%;
+  height: 145%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--accent-deep) 42%, transparent) 0%,
+    transparent 68%
+  );
+  filter: blur(28px);
+  transform: translate(-50%, -50%) scale(0.94);
+  opacity: 0;
+  animation: breathe 4.4s ease-in-out 1.15s infinite;
+  pointer-events: none;
+}
+
+.mark {
+  position: relative;
+  width: min(17.5rem, 58vw);
+  height: auto;
+  color: var(--accent);
+  overflow: visible;
+}
+
+.disc {
+  fill: var(--disc);
+}
+
+.ring {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 40;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw-ring 1.35s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.numerals {
+  fill: currentColor;
+  opacity: 0;
+  transform-origin: 256px 256px;
+  transform: scale(0.96);
+  animation: settle-mark 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards;
+}
+
+h1 {
+  margin: 2rem 0 0;
+  font-size: clamp(1.75rem, 5.5vw, 3.15rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(0.7rem);
+  animation: rise-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1.35s forwards;
+}
+
+.sub {
+  margin: 0.75rem 0 0;
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(0.55rem);
+  animation: rise-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1.65s forwards;
+}
+
+@keyframes draw-ring {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes settle-mark {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rise-in {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.38;
+    transform: translate(-50%, -50%) scale(0.94);
+  }
+  50% {
+    opacity: 0.72;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow,
+  .ring,
+  .numerals,
+  h1,
+  .sub {
+    animation: none;
+  }
+
+  .glow {
+    opacity: 0.45;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .ring {
+    stroke-dashoffset: 0;
+  }
+
+  .numerals,
+  h1,
+  .sub {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
