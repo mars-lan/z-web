@@ -31,6 +31,10 @@ body {
   height: 100%;
 }
 
+html:has(body.legal) {
+  height: auto;
+}
+
 body {
   margin: 0;
   overflow: hidden;
@@ -43,6 +47,12 @@ body {
     "Segoe UI",
     sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+body.legal {
+  overflow: auto;
+  height: auto;
+  min-height: 100%;
 }
 
 #embers {
@@ -60,7 +70,7 @@ main {
   min-height: 100%;
   display: grid;
   place-items: center;
-  padding: 2rem 1.5rem;
+  padding: 2rem 1.5rem 4.5rem;
 }
 
 .stage {
@@ -125,7 +135,7 @@ main {
   animation: zoom-fade-mark 1.35s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
-h1 {
+.stage h1 {
   margin: 2rem 0 0;
   font-size: clamp(1.75rem, 5.5vw, 3.15rem);
   font-weight: 600;
@@ -147,6 +157,156 @@ h1 {
   filter: blur(8px);
   transform: translateY(0.55rem);
   animation: rise-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1.65s forwards;
+}
+
+.teaser-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1.15rem 1.5rem 1.5rem;
+  font-size: 0.875rem;
+  opacity: 0;
+  animation: rise-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1.95s forwards;
+}
+
+.teaser-footer a,
+.legal-footer a,
+.teaser-footer span,
+.legal-footer span {
+  color: var(--muted);
+}
+
+.teaser-footer a {
+  text-decoration: none;
+}
+
+.teaser-footer a:hover,
+.teaser-footer a:focus-visible {
+  color: var(--text);
+}
+
+.legal-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.legal-header,
+.legal-doc,
+.legal-footer {
+  width: 100%;
+  max-width: 40rem;
+  margin-inline: auto;
+}
+
+.legal-header {
+  padding: 1.25rem 1.5rem;
+}
+
+.legal-doc {
+  padding: 0 1.5rem 3.5rem;
+}
+
+.legal-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.legal-brand img {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+}
+
+.legal-brand:hover,
+.legal-brand:focus-visible {
+  color: var(--accent);
+}
+
+body.legal main {
+  display: block;
+  min-height: 0;
+  padding: 0;
+}
+
+.legal-doc h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+}
+
+.updated {
+  margin: 0 0 2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.legal-doc h2 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.legal-doc p,
+.legal-doc li {
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.legal-doc p {
+  margin: 0 0 1rem;
+}
+
+.legal-doc ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.legal-doc li + li {
+  margin-top: 0.35rem;
+}
+
+.legal-doc a {
+  color: var(--accent);
+}
+
+.legal-doc a:hover,
+.legal-doc a:focus-visible {
+  color: var(--text);
+}
+
+.legal-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1.25rem 1.5rem 1.75rem;
+  font-size: 0.875rem;
+  border-top: 1px solid color-mix(in srgb, var(--muted) 28%, transparent);
+}
+
+.legal-footer a {
+  text-decoration: none;
+}
+
+.legal-footer a:hover,
+.legal-footer a:focus-visible,
+.legal-footer a[aria-current="page"] {
+  color: var(--text);
 }
 
 @keyframes draw-ring {
@@ -186,8 +346,9 @@ h1 {
   .glow,
   .ring,
   .numerals,
-  h1,
-  .sub {
+  .stage h1,
+  .sub,
+  .teaser-footer {
     animation: none;
   }
 
@@ -202,8 +363,9 @@ h1 {
   }
 
   .numerals,
-  h1,
-  .sub {
+  .stage h1,
+  .sub,
+  .teaser-footer {
     opacity: 1;
     filter: none;
     transform: none;

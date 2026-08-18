@@ -6,3 +6,9 @@
 
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
+
+/privacy/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/terms/index.html
+  Cache-Control: public, max-age=0, must-revalidate

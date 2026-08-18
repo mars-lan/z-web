@@ -1,6 +1,6 @@
-# 18
+# 18 Browser
 
-Official website for **18**, deployed to Cloudflare Pages at [18-plus.app](https://18-plus.app).
+Official website for **18 Browser**, deployed to Cloudflare Pages at [18-plus.app](https://18-plus.app).
 
 - Production: [https://18-plus.app](https://18-plus.app) and [https://www.18-plus.app](https://www.18-plus.app)
 - Pages preview: [https://18-plus-web.pages.dev](https://18-plus-web.pages.dev)
