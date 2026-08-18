@@ -1,9 +1,9 @@
 # 18
 
-Official website for **18**, deployed to Cloudflare Pages.
+Official website for **18**, deployed to Cloudflare Pages at [18-plus.app](https://18-plus.app).
 
-- Production: [https://18-plus-web.pages.dev](https://18-plus-web.pages.dev)
-- Custom hostnames (pending DNS): [https://18-plus.app](https://18-plus.app) and `www.18-plus.app`
+- Production: [https://18-plus.app](https://18-plus.app) and [https://www.18-plus.app](https://www.18-plus.app)
+- Pages preview: [https://18-plus-web.pages.dev](https://18-plus-web.pages.dev)
 
 ## Setup
 
@@ -29,9 +29,4 @@ Serves `public/` through Wrangler Pages.
 yarn deploy
 ```
 
-Publishes to the `18-plus-web` Pages project. After the first deploy, add proxied CNAME records in the `18-plus.app` zone (leave Google MX and TXT records in place):
-
-| Name | Type | Content | Proxy |
-| --- | --- | --- | --- |
-| `@` | CNAME | `18-plus-web.pages.dev` | Proxied |
-| `www` | CNAME | `18-plus-web.pages.dev` | Proxied |
+Publishes to the `18-plus-web` Pages project. Custom hostnames `18-plus.app` and `www.18-plus.app` are attached to that project. Leave the zone’s Google MX and TXT records in place.
