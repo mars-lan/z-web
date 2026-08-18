@@ -14,7 +14,8 @@ if (canvas instanceof HTMLCanvasElement && motionOk) {
     let height = 0;
 
     function accent() {
-      const light = window.matchMedia("(prefers-color-scheme: light)").matches;
+      const light =
+        document.documentElement.getAttribute("data-theme") === "light";
       return light
         ? { r: 168, g: 36, b: 36 }
         : { r: 233, g: 154, b: 154 };
@@ -78,4 +79,27 @@ if (canvas instanceof HTMLCanvasElement && motionOk) {
     window.addEventListener("resize", resize, { passive: true });
     requestAnimationFrame(tick);
   }
+}
+
+const stage = document.querySelector(".stage");
+const seal = document.querySelector(".seal");
+
+function replayIntro() {
+  if (!motionOk || !(stage instanceof HTMLElement)) {
+    return;
+  }
+
+  const targets = [...stage.querySelectorAll(".ring, .numerals, .glow")];
+
+  for (const el of targets) {
+    el.style.animation = "none";
+  }
+  void stage.offsetWidth;
+  for (const el of targets) {
+    el.style.animation = "";
+  }
+}
+
+if (seal instanceof HTMLElement) {
+  seal.addEventListener("click", replayIntro);
 }

@@ -3,6 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (function () {
+        var theme = null;
+        try {
+          theme = localStorage.getItem("18-browser-theme");
+        } catch (e) {}
+        if (theme !== "light" && theme !== "dark") {
+          theme = matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+        }
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
     <title>18 Browser</title>
     <meta
       name="description"
@@ -42,18 +56,28 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
+    <button
+      type="button"
+      class="theme-toggle"
+      data-theme-toggle
+      aria-label="Switch to light mode"
+    >
+      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" />
+        <path
+          d="M12 3v1.5M12 19.5V21M4.93 4.93l1.06 1.06M18.01 18.01l1.06 1.06M3 12h1.5M19.5 12H21M4.93 19.07l1.06-1.06M18.01 5.99l1.06-1.06"
+        />
+      </svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z" />
+      </svg>
+    </button>
     <canvas id="embers" aria-hidden="true"></canvas>
     <main>
       <div class="stage">
-        <div class="seal">
+        <button type="button" class="seal" aria-label="Replay 18 Browser animation">
           <div class="glow" aria-hidden="true"></div>
-          <svg
-            class="mark"
-            viewBox="0 0 512 512"
-            role="img"
-            aria-labelledby="mark-title"
-          >
-            <title id="mark-title">18 Browser</title>
+          <svg class="mark" viewBox="0 0 512 512" aria-hidden="true">
             <circle class="disc" cx="256" cy="256" r="204.35" />
             <path
               class="ring"
@@ -69,7 +93,7 @@
               />
             </g>
           </svg>
-        </div>
+        </button>
         <h1>Coming of age</h1>
         <p class="sub">The new web is almost here.</p>
       </div>
@@ -80,5 +104,6 @@
       <a href="/terms">Terms</a>
     </footer>
     <script src="/motion.js"></script>
+    <script src="/theme.js"></script>
   </body>
 </html>
