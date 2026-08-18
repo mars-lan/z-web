@@ -1,4 +1,4 @@
-# 18 Browser
+# 18 Browser Website
 
 Official website for **18 Browser**, deployed to Cloudflare Pages at [18-plus.app](https://18-plus.app).
 
