@@ -116,19 +116,41 @@ main {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 145%;
-  height: 145%;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    color-mix(in srgb, var(--accent-deep) 42%, transparent) 0%,
-    transparent 68%
-  );
-  filter: blur(28px);
-  transform: translate(-50%, -50%) scale(0.94);
+  width: 134%;
+  height: 134%;
+  transform: translate(-50%, -50%);
   opacity: 0;
-  animation: breathe 4.4s ease-in-out 1.15s infinite;
+  animation: glow-in 1.35s ease forwards;
   pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  inset: 6%;
+  border-radius: 42% 58% 70% 30% / 45% 30% 70% 55%;
+  background: radial-gradient(
+    circle at 38% 36%,
+    color-mix(in srgb, var(--accent) 62%, transparent) 0%,
+    color-mix(in srgb, var(--accent-deep) 50%, transparent) 42%,
+    transparent 72%
+  );
+  filter: blur(11px);
+  transform-origin: 50% 50%;
+  animation: blob-morph 8s ease-in-out infinite;
+}
+
+.blob:nth-child(2) {
+  inset: 14% 2% 2% 16%;
+  opacity: 0.78;
+  animation-duration: 10.5s;
+  animation-direction: reverse;
+}
+
+.blob:nth-child(3) {
+  inset: 0 12% 16% 4%;
+  opacity: 0.55;
+  animation-duration: 12.5s;
+  animation-delay: -4s;
 }
 
 .mark {
@@ -140,7 +162,7 @@ main {
 }
 
 .disc {
-  fill: var(--disc);
+  fill: none;
 }
 
 .ring {
@@ -457,20 +479,35 @@ body.legal main {
   }
 }
 
-@keyframes breathe {
+@keyframes glow-in {
+  to {
+    opacity: 0.64;
+  }
+}
+
+@keyframes blob-morph {
   0%,
   100% {
-    opacity: 0.38;
-    transform: translate(-50%, -50%) scale(0.94);
+    border-radius: 42% 58% 70% 30% / 45% 30% 70% 55%;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    border-radius: 70% 30% 46% 54% / 30% 62% 38% 70%;
+    transform: translate(5%, -4%) rotate(10deg) scale(1.08);
   }
   50% {
-    opacity: 0.72;
-    transform: translate(-50%, -50%) scale(1.06);
+    border-radius: 30% 70% 38% 62% / 62% 40% 60% 38%;
+    transform: translate(-4%, 5%) rotate(-8deg) scale(0.94);
+  }
+  75% {
+    border-radius: 58% 42% 30% 70% / 52% 70% 30% 48%;
+    transform: translate(4%, 3%) rotate(6deg) scale(1.05);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .glow,
+  .blob,
   .ring,
   .numerals,
   .stage h1,
@@ -481,7 +518,11 @@ body.legal main {
 
   .glow {
     opacity: 0.45;
-    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .blob {
+    border-radius: 50%;
+    transform: none;
   }
 
   .ring {

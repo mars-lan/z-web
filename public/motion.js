@@ -89,7 +89,7 @@ function replayIntro() {
     return;
   }
 
-  const targets = [...stage.querySelectorAll(".ring, .numerals, .glow")];
+  const targets = [...stage.querySelectorAll(".ring, .numerals, .glow, .blob")];
 
   for (const el of targets) {
     el.style.animation = "none";
