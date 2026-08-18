@@ -9,7 +9,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "18-plus-web@workspace:."
   dependencies:
-    wrangler: "npm:^4.118.0"
+    wrangler: "npm:4.123.0"
   languageName: unknown
   linkType: soft
 
@@ -1059,7 +1059,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wrangler@npm:^4.118.0":
+"wrangler@npm:4.123.0":
   version: 4.123.0
   resolution: "wrangler@npm:4.123.0"
   dependencies:
