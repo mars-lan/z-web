@@ -7,7 +7,7 @@ if (canvas instanceof HTMLCanvasElement && motionOk) {
   const ctx = canvas.getContext("2d");
 
   if (ctx) {
-    const COUNT = 42;
+    const COUNT = 60;
     /** @type {{ x: number, y: number, vx: number, vy: number, r: number, a: number, life: number }[]} */
     const particles = [];
     let width = 0;
@@ -22,14 +22,16 @@ if (canvas instanceof HTMLCanvasElement && motionOk) {
     }
 
     function spawn(fromBottom) {
+      const travel = Math.max(height * 0.5, 1);
+      const life = fromBottom ? 0 : Math.random();
       return {
         x: Math.random() * width,
-        y: fromBottom ? height + 6 : Math.random() * height,
+        y: height + 6 - travel * life,
         vx: (Math.random() - 0.5) * 0.28,
-        vy: -0.12 - Math.random() * 0.38,
+        vy: -0.28 - Math.random() * 0.62,
         r: 0.55 + Math.random() * 1.85,
         a: 0.18 + Math.random() * 0.42,
-        life: fromBottom ? 0 : Math.random(),
+        life,
       };
     }
 
@@ -51,7 +53,7 @@ if (canvas instanceof HTMLCanvasElement && motionOk) {
       for (const particle of particles) {
         particle.x += particle.vx;
         particle.y += particle.vy;
-        particle.life += 0.0018;
+        particle.life += Math.abs(particle.vy) / Math.max(height * 0.5, 1);
 
         if (
           particle.y < -10 ||
