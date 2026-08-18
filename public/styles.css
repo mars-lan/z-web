@@ -112,8 +112,8 @@ main {
   stroke: currentColor;
   stroke-width: 40;
   stroke-linejoin: round;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
+  stroke-dasharray: 101;
+  stroke-dashoffset: 101;
   animation: draw-ring 1.35s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
@@ -121,8 +121,8 @@ main {
   fill: currentColor;
   opacity: 0;
   transform-origin: 256px 256px;
-  transform: scale(0.96);
-  animation: settle-mark 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards;
+  transform: scale(0.68);
+  animation: zoom-fade-mark 1.35s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
 h1 {
@@ -155,7 +155,7 @@ h1 {
   }
 }
 
-@keyframes settle-mark {
+@keyframes zoom-fade-mark {
   to {
     opacity: 1;
     transform: scale(1);
@@ -197,6 +197,7 @@ h1 {
   }
 
   .ring {
+    stroke-dasharray: none;
     stroke-dashoffset: 0;
   }
 
