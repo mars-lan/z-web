@@ -62,6 +62,7 @@ body {
 }
 
 body.legal {
+  position: relative;
   overflow: auto;
   height: auto;
   min-height: 100%;
@@ -307,7 +308,7 @@ main {
 }
 
 .theme-toggle {
-  position: fixed;
+  position: absolute;
   top: 1rem;
   right: 1rem;
   z-index: 3;
