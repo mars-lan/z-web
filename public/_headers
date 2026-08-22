@@ -12,3 +12,6 @@
 
 /terms.html
   Cache-Control: public, max-age=0, must-revalidate
+
+/delete.html
+  Cache-Control: public, max-age=0, must-revalidate
