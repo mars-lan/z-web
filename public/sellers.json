@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "contact_email": "info@18-plus.app",
+  "sellers": [
+    {
+      "seller_id": "pub-1863689293026606",
+      "name": "NOT BE LIMITED",
+      "domain": "18-plus.app",
+      "seller_type": "PUBLISHER",
+      "is_passthrough": 0
+    }
+  ]
+}

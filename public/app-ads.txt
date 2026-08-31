@@ -1,1 +1,2 @@
+OWNERDOMAIN=18-plus.app
 google.com, pub-1863689293026606, DIRECT, f08c47fec0942fa0
