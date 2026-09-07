@@ -10,7 +10,7 @@
     "update": "./scripts/update.sh"
   },
   "devDependencies": {
-    "wrangler": "4.123.0"
+    "wrangler": "4.129.0"
   },
   "resolutions": {
     "undici": "7.29.0"
