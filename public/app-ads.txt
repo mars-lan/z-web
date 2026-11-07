@@ -158,6 +158,16 @@ bold-win.com, 1189, RESELLER, 71746737d0bab951
 bigo.sg, adidz3dyfp, RESELLER
 ignitemediatech.com, pub_11115, RESELLER
 opera.com, pub6148735850944, RESELLER, 55a0c5fd61378de3
+my-cast.tv, 987033, RESELLER, 8c33fe1bd714ffd7
+appnexus.com, 17973, RESELLER, f5ab79cb980f11d1
+start.io, 131192070, RESELLER
+monetrix.ai, 10761, RESELLER
+bold-win.com, 1013, RESELLER, 71746737d0bab951
+playdigo.com, 1965, RESELLER
+pubmatic.com, 165874, RESELLER, 5d62403b186f2ace
+triplelift.com, 8614, RESELLER, 6c33edb13117fd86
+smaato.com, 1100059345, RESELLER, 07bcf65f187117b4
+adwmg.com, 159512, RESELLER, c9688a22012618e7
 
 # InMobi
 inmobi.com, 569bde587de74c7382c9db6be99db664, DIRECT, 83e75a7ae333ca9d
