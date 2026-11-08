@@ -1,9 +1,9 @@
-# 18 Browser Website
+# Z Website
 
-Official website for **18 Browser**, deployed to Cloudflare Pages at [18-plus.app](https://18-plus.app).
+Official website for **Z**, deployed to Cloudflare Pages at [18-plus.app](https://18-plus.app).
 
 - Production: [https://18-plus.app](https://18-plus.app) and [https://www.18-plus.app](https://www.18-plus.app)
-- Pages preview: [https://18-plus-web.pages.dev](https://18-plus-web.pages.dev)
+- Pages preview: [https://z-web.pages.dev](https://z-web.pages.dev)
 
 ## Setup
 
@@ -29,4 +29,4 @@ Serves `public/` through Wrangler Pages.
 yarn deploy
 ```
 
-Publishes to the `18-plus-web` Pages project. Custom hostnames `18-plus.app` and `www.18-plus.app` are attached to that project. Leave the zone’s Google MX and TXT records in place.
+Publishes to the `z-web` Pages project. Custom hostnames `18-plus.app` and `www.18-plus.app` are attached to that project. Leave the zone’s Google MX and TXT records in place.
